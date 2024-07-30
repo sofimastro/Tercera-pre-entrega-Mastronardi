@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<<<<<<< HEAD:mi_proyecto/mi_proyecto/mi_app/templates/agregar_curso.html
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -23,3 +24,19 @@
 </body>
 </html>
 
+=======
+<html>
+<head>
+    <title>Agregar Curso</title>
+</head>
+<body>
+    <h1>Agregar Nuevo Curso</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Guardar</button>
+    </form>
+    <a href="{% url 'listar_cursos' %}">Volver a la lista de cursos</a>
+</body>
+</html>
+>>>>>>> 2fd4330c5057db8c3ed1f52476d462dcfbaf808d:mi_proyecto/mi_app/templates/agregar_curso.html
