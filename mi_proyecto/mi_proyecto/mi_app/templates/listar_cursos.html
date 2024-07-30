@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Listar Cursos</title>
+</head>
+<body>
+    <h1>Lista de Cursos</h1>
+    <a href="{% url 'agregar_curso' %}">Agregar Nuevo Curso</a>
+    <ul>
+        {% for curso in cursos %}
+            <li>
+                {{ curso.nombre }} - {{ curso.descripcion }} - {{ curso.duracion }} horas
+                <a href="{% url 'editar_curso' curso.id %}">Editar</a>
+                <a href="{% url 'eliminar_curso' curso.id %}">Eliminar</a>
+            </li>
+        {% empty %}
+            <li>No hay cursos disponibles.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

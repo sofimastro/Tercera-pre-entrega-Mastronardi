@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar Curso</title>
+    <link href="{% static 'mi_app/css/bootstrap.min.css' %}" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Agregar Nuevo Curso</h1>
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                {{ form.non_field_errors }}
+                {{ form.as_p }}
+            </div>
+            <button type="submit" class="btn btn-primary">Guardar</button>
+        </form>
+        <a href="{% url 'listar_cursos' %}" class="btn btn-secondary mt-3">Volver a la lista de cursos</a>
+    </div>
+    <script src="{% static 'mi_app/js/bootstrap.bundle.min.js' %}"></script>
+</body>
+</html>
+
