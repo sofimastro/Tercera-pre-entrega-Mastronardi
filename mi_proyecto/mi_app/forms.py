@@ -16,3 +16,8 @@ class EstudianteForm(forms.ModelForm):
     class Meta:
         model = Estudiante
         fields = ['nombre', 'fecha_nacimiento', 'cursos']
+
+
+# mi_app/forms.py
+class BuscarCursoForm(forms.Form):
+    nombre = forms.CharField(max_length=100, required=False)

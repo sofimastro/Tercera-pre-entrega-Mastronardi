@@ -1,4 +1,5 @@
 # mi_app/views.py
+<<<<<<< HEAD
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Curso, Profesor, Estudiante
 from .forms import CursoForm, ProfesorForm, EstudianteForm
@@ -110,3 +111,28 @@ def eliminar_estudiante(request, id):
         estudiante.delete()
         return redirect('listar_estudiantes')
         return render(request, 'mi_app/eliminar_estudiante.html', {'estudiante': estudiante})
+=======
+from django.shortcuts import render, redirect
+from .forms import CursoForm, ProfesorForm, EstudianteForm, BuscarCursoForm
+from .models import Curso, Profesor, Estudiante
+
+def insertar_curso(request):
+    if request.method == 'POST':
+        form = CursoForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('listar_cursos')
+    else:
+        form = CursoForm()
+    return render(request, 'insertar_curso.html', {'form': form})
+
+def buscar_curso(request):
+    form = BuscarCursoForm(request.GET)
+    cursos = Curso.objects.all()
+    if form.is_valid():
+        nombre = form.cleaned_data.get('nombre')
+        if nombre:
+            cursos = cursos.filter(nombre__icontains=nombre)
+    return render(request, 'buscar_curso.html', {'form': form, 'cursos': cursos})
+
+>>>>>>> 623ef3c57bb2162240d92986451e5d9084e1b36d

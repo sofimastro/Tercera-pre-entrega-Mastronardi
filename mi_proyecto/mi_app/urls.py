@@ -1,5 +1,6 @@
 # mi_app/urls.py
 from django.urls import path
+<<<<<<< HEAD
 from . import views
 
 urlpatterns = [
@@ -15,4 +16,11 @@ urlpatterns = [
     path('estudiantes/agregar/', views.agregar_estudiante, name='agregar_estudiante'),
     path('estudiantes/editar/<int:id>/', views.editar_estudiante, name='editar_estudiante'),
     path('estudiantes/eliminar/<int:id>/', views.eliminar_estudiante, name='eliminar_estudiante'),
+=======
+from .views import insertar_curso, buscar_curso
+
+urlpatterns = [
+    path('insertar_curso/', insertar_curso, name='insertar_curso'),
+    path('buscar_curso/', buscar_curso, name='buscar_curso'),
+>>>>>>> 623ef3c57bb2162240d92986451e5d9084e1b36d
 ]
