@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Listar Profesores</title>
+</head>
+<body>
+    <h1>Lista de Profesores</h1>
+    <a href="{% url 'agregar_profesor' %}">Agregar Nuevo Profesor</a>
+    <ul>
+        {% for profesor in profesores %}
+            <li>
+                {{ profesor.nombre }} - {{ profesor.especialidad }}
+                <a href="{% url 'editar_profesor' profesor.id %}">Editar</a>
+                <a href="{% url 'eliminar_profesor' profesor.id %}">Eliminar</a>
+            </li>
+        {% empty %}
+            <li>No hay profesores disponibles.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
